@@ -2,9 +2,9 @@
 
 ## A File logging library for Android.  
 
-A common thing each Android developer do after run the Android Project is looking at the LogCat. 
-Yes we create lots of logging statement for debugging what if  some other person testing the app on different device and crash happened.
-On that kind of scenario [FlogAndroid](https://github.com/vinayagasundar/FlogAndroid)  will help you..!!
+A common thing each Android developer do, after run the Android Project is looking at the LogCat. 
+Yes we do create lot of logging statements for debugging. What if some other developer test the app on different device and crash happened.
+In this scenario [FlogAndroid](https://github.com/vinayagasundar/FlogAndroid)  will help you..!!
 
 # This project is under development
 
