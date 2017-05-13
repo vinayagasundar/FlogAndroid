@@ -23,7 +23,7 @@ final class FileHelper {
 
     private static final String LOG_FOLDER = "log";
     private static final String LOG_FILE_STRING_FORMAT = "/%s/%s/%s_%s.log";
-    private static final String LOG_DATE_FORMAT = "yyyy_MM_dd_hh_mm_ss";
+    private static final String LOG_DATE_FORMAT = "yyyy_MM_dd_HH_mm_ss";
 
 
     /*package*/ @SuppressWarnings("ResultOfMethodCallIgnored")
