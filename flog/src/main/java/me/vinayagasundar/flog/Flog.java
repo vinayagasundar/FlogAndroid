@@ -2,6 +2,7 @@ package me.vinayagasundar.flog;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
@@ -372,6 +373,41 @@ public final class Flog {
         if (mFile == null) {
             mFile = FileHelper.createLogFile(mAppContext, mLogFilePrefix);
             FileLoggerThread.init(mFile);
+
+
+            String packageName = mAppContext.getApplicationContext().getPackageName();
+
+            try {
+                PackageInfo packageInfo = mAppContext.getPackageManager().getPackageInfo(packageName,
+                        0);
+
+                if (packageInfo != null) {
+                    String appStrBuilder = ("===============================================" +
+                            "========\n") +
+                            "App Package : " +
+                            packageName +
+                            "\n" +
+                            "Version Code : " +
+                            packageInfo.versionCode +
+                            "\n" +
+                            "Version Name : " +
+                            packageInfo.versionName +
+                            "\n" +
+                            "Date & Time  : " +
+                            mDateFormat.format(new Date()) +
+                            "\n" +
+                            "===============================================" +
+                            "========\n";
+
+
+                    FileLoggerThread.getInstance().log(appStrBuilder);
+                }
+
+            } catch (PackageManager.NameNotFoundException e) {
+                Log.e(TAG, "log: PackageManager.NameNotFoundException ", e);
+            } catch (IllegalAccessException e) {
+                Log.e(TAG, "log: IllegalAccessException ", e);
+            }
         }
 
 
