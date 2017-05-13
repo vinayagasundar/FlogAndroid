@@ -276,6 +276,28 @@ public final class Flog {
     }
 
 
+    /**
+     * Send an {@link #ERROR} log message.
+     * @param tag Used to identify the source of a log message.  It usually identifies
+     *        the class or activity where the log call occurs.
+     * @param msg The message you would like logged.
+     */
+    public static void e(String tag, String msg) {
+        log(ERROR, tag, msg);
+    }
+
+    /**
+     * Send a {@link #ERROR} log message and log the exception.
+     * @param tag Used to identify the source of a log message.  It usually identifies
+     *        the class or activity where the log call occurs.
+     * @param msg The message you would like logged.
+     * @param tr An exception to log
+     */
+    public static void e(String tag, String msg, Throwable tr) {
+        log(ERROR, tag, msg, tr);
+    }
+
+
     private static void log(int logType, String tag, String message) {
         log(logType, tag, message, null);
     }
