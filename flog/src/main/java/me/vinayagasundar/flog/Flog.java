@@ -8,6 +8,9 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * {@link Flog} is used to save all your {@link android.util.Log} message in a file on SD Card
@@ -57,6 +60,17 @@ public final class Flog {
     private static final int ERROR = 6;
 
 
+    /**
+     * Default format used in Each Log statement
+     */
+    private static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss.SSS";
+
+
+    /**
+     * To format date in log file
+     */
+    private static SimpleDateFormat mDateFormat = new SimpleDateFormat(DEFAULT_DATE_FORMAT,
+            Locale.getDefault());
 
 
     /**
@@ -362,6 +376,8 @@ public final class Flog {
 
 
         StringBuilder builder = new StringBuilder();
+        builder.append(mDateFormat.format(new Date()));
+        builder.append(" ");
         builder.append(tag);
         builder.append(" ");
         builder.append(message);
