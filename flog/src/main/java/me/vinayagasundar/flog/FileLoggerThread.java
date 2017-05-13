@@ -102,6 +102,7 @@ final class FileLoggerThread extends Thread {
 
         try {
             while ((log = mLogQueue.take()) != FINISH) {
+                mWriter.newLine();
                 mWriter.write(log);
                 mWriter.flush();
             }
