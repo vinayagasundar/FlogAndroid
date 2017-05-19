@@ -12,6 +12,9 @@ env:
 # Giving even more memory to Gradle JVM
     - GRADLE_OPTS="-Xmx2048m -XX:MaxPermSize=1024m"
 
+jdk:
+  - oraclejdk8
+
 android:
   components:
     - tools
